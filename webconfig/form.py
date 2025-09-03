@@ -48,11 +48,6 @@ OUTPUT_ = [
     FormField(6, "Operating System", 1, {1: "Linux", 2: "MacOS", 3: "Windows", 4: "Android", 255: "Other"}, "uint8"),
     FormField(7, "Screen Position", 1, {1: "Left", 2: "Right"}, "uint8"),
     FormField(8, "Cursor Park Position", 0, {0: "Top", 1: "Bottom", 3: "Previous"}, "uint8"),
-    FormField(1003, "Screensaver", elem="label"),
-    FormField(9, "Mode", 0, {0: "Disabled", 1: "Pong", 2: "Jitter"}, "uint8"),
-    FormField(10, "Only If Inactive", None, {}, "uint8", "checkbox"),
-    FormField(11, "Idle Time (μs)", None, {}, "uint64"),
-    FormField(12, "Max Time (μs)", None, {}, "uint64"),
 ]
 
 def generate_output(base, data):

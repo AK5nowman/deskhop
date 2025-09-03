@@ -33,13 +33,6 @@ void _get_border_position(device_t *state, border_size_t *border) {
         border->top = state->pointer_y;
 }
 
-void _screensaver_set(device_t *state, uint8_t value) {
-    if (CURRENT_BOARD_IS_ACTIVE_OUTPUT)
-        state->config.output[BOARD_ROLE].screensaver.mode = value;
-    else
-        send_value(value, SCREENSAVER_MSG);
-};
-
 /* This key combo records switch y top coordinate for different-size monitors  */
 void screen_border_hotkey_handler(device_t *state, hid_keyboard_report_t *report) {
     border_size_t *border = &state->config.output[state->active_output].border;
@@ -114,22 +107,6 @@ void mouse_zoom_hotkey_handler(device_t *state, hid_keyboard_report_t *report) {
     state->mouse_zoom ^= 1;
     send_value(state->mouse_zoom, MOUSE_ZOOM_MSG);
 };
-
-/* When pressed, enables the screensaver on active output */
-void enable_screensaver_hotkey_handler(device_t *state, hid_keyboard_report_t *report) {
-    uint8_t desired_mode = state->config.output[BOARD_ROLE].screensaver.mode;
-
-    /* If the user explicitly asks for screensaver to be active, ignore config and turn it on */
-    if (desired_mode == DISABLED)
-        desired_mode = PONG;
-
-    _screensaver_set(state, desired_mode);
-}
-
-/* When pressed, disables the screensaver on active output */
-void disable_screensaver_hotkey_handler(device_t *state, hid_keyboard_report_t *report) {
-    _screensaver_set(state, DISABLED);
-}
 
 /* Put the device into a special configuration mode */
 void config_enable_hotkey_handler(device_t *state, hid_keyboard_report_t *report) {
@@ -232,11 +209,6 @@ void handle_flash_led_msg(uart_packet_t *packet, device_t *state) {
 void handle_wipe_config_msg(uart_packet_t *packet, device_t *state) {
     wipe_config();
     load_config(state);
-}
-
-/* Update screensaver state after received message */
-void handle_screensaver_msg(uart_packet_t *packet, device_t *state) {
-    state->config.output[BOARD_ROLE].screensaver.mode = packet->data[0];
 }
 
 /* Process consumer control message */

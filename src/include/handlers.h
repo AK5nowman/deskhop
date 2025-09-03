@@ -19,8 +19,6 @@
  *==============================================================================*/
 
 void config_enable_hotkey_handler(device_t *, hid_keyboard_report_t *);
-void disable_screensaver_hotkey_handler(device_t *, hid_keyboard_report_t *);
-void enable_screensaver_hotkey_handler(device_t *, hid_keyboard_report_t *);
 void fw_upgrade_hotkey_handler_A(device_t *, hid_keyboard_report_t *);
 void fw_upgrade_hotkey_handler_B(device_t *, hid_keyboard_report_t *);
 void mouse_zoom_hotkey_handler(device_t *, hid_keyboard_report_t *);
@@ -54,7 +52,6 @@ void handle_reboot_msg(uart_packet_t *, device_t *);
 void handle_request_byte_msg(uart_packet_t *, device_t *);
 void handle_response_byte_msg(uart_packet_t *, device_t *);
 void handle_save_config_msg(uart_packet_t *, device_t *);
-void handle_screensaver_msg(uart_packet_t *, device_t *);
 void handle_set_report_msg(uart_packet_t *, device_t *);
 void handle_switch_lock_msg(uart_packet_t *, device_t *);
 void handle_sync_borders_msg(uart_packet_t *, device_t *);

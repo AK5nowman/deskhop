@@ -23,7 +23,6 @@ enum packet_type_e {
     SYNC_BORDERS_MSG     = 8,
     FLASH_LED_MSG        = 9,
     WIPE_CONFIG_MSG      = 10,
-    SCREENSAVER_MSG      = 11,
     HEARTBEAT_MSG        = 12,
     GAMING_MODE_MSG      = 13,
     CONSUMER_CONTROL_MSG = 14,

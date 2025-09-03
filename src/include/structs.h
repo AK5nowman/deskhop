@@ -173,13 +173,6 @@ enum screen_pos_e {
     MIDDLE = 3,
 };
 
-enum screensaver_mode_e {
-    DISABLED   = 0,
-    PONG       = 1,
-    JITTER     = 2,
-    MAX_SS_VAL = JITTER,
-};
-
 extern const config_t default_config;
 extern const config_t ADDR_CONFIG[];
 extern const uint8_t ADDR_FW_METADATA[];

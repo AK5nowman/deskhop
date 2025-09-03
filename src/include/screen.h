@@ -31,13 +31,6 @@ typedef struct {
 } border_size_t;
 
 typedef struct {
-    uint8_t mode;
-    uint8_t only_if_inactive;
-    uint64_t idle_time_us;
-    uint64_t max_time_us;
-} screensaver_t;
-
-typedef struct {
     uint32_t number;           // Number of this output (e.g. OUTPUT_A = 0 etc)
     uint32_t screen_count;     // How many monitors per output (e.g. Output A is Windows with 3 monitors)
     uint32_t screen_index;     // Current active screen
@@ -47,5 +40,4 @@ typedef struct {
     uint8_t os;                // Operating system on this output
     uint8_t pos;               // Screen position on this output
     uint8_t mouse_park_pos;    // Where the mouse goes after switch
-    screensaver_t screensaver; // Screensaver parameters for this output
 } output_t;
